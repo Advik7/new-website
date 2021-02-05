@@ -1,8 +1,8 @@
 const minute_h1 = document.getElementById('minutes').innerText;
-const second_h1 = document.getElementById('seconds').innerText
+const second_h1 = document.getElementById('seconds').innerText;
 
 
-num = 60
+num = 60;
 function minute() {
    minute_h1 = num
    num--
@@ -18,9 +18,9 @@ function second() {
 
 }
 
-minute()
-second()
+minute();
+second();
 
-setInterval(second, 1000)
-setInterval( minute, 60000)
+setInterval(second, 1000);
+setInterval( minute, 60000);
 
