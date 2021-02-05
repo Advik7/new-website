@@ -1,5 +1,5 @@
-const minute_h1 = document.getElementById('minutes').innerText;
-const second_h1 = document.getElementById('seconds').innerText;
+var minute_h1 = document.getElementById('minutes').innerText;
+var second_h1 = document.getElementById('seconds').innerText;
 
 
 num = 60;
