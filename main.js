@@ -3,7 +3,7 @@ var second_h1 = document.getElementById('seconds').innerText;
 
 
 num = 60;
-function minute() {
+function minute(num) {
    minute_h1 = num
    num--
 
@@ -11,15 +11,15 @@ function minute() {
 
 }
 
-function second() {
+function second(num) {
   second_h1 = num
   num --
 
 
 }
 
-minute();
-second();
+minute(num);
+second(num);
 
 setInterval(second, 1000);
 setInterval( minute, 60000);
