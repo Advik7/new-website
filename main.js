@@ -1,7 +1,15 @@
+function format(num) {
+    if (num < 10) {
+        num = "0" + num   
+    }
+    return num
 
+
+
+}
 function time() {
-    const seconds = new Date().getSeconds();
-    const minutes = new Date().getMinutes();
+    var seconds = new Date().getSeconds();
+    var minutes = new Date().getMinutes();
     var hours = new Date().getHours();
     var state = "AM"
     if (hours>12) {
@@ -9,7 +17,7 @@ function time() {
         state = "PM"
 
     }
-    document.querySelector('h1').innerHTML = hours + " : " +  minutes + " : " + seconds + "  " + state
+    document.querySelector('h1').innerHTML = format(hours) + " : " +  format(minutes) + " : " + format(seconds) + "  " + state
 }
 time()
 setInterval(time)
