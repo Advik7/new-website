@@ -1,26 +1,16 @@
-var minute_h1 = document.getElementById('minutes').textContent;
-var second_h1 = document.getElementById('seconds').textContent;
 
+function time() {
+    const seconds = new Date().getSeconds();
+    const minutes = new Date().getMinutes();
+    var hours = new Date().getHours();
+    var state = "AM"
+    if (hours>12) {
+        hours-=12
+        state = "PM"
 
-num = 60;
-function minute(num) {
-   minute_h1 = num
-   num--
-
-
-
+    }
+    document.querySelector('h1').innerHTML = hours + " : " +  minutes + " : " + seconds + "  " + state
 }
-
-function second(num) {
-  second_h1 = num
-  num --
-
-
-}
-
-minute(num);
-second(num);
-
-setInterval(second, 1000);
-setInterval( minute, 60000);
+time()
+setInterval(time)
 
