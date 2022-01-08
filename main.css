@@ -1,17 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+h1{color: brown;
+    word-spacing: 10px;
+    text-align: center;
+    font-size: 2.5rem;
 
 
 
-body{height:100vh;
-    overflow: hidden;
-    background-color: black;
+}
+
+.buttons{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 8rem;
+
+
     
 }
-h1{text-align: center;
-    font-family: Orbitron;
-    margin-top: 20%;
-    font-size: 3rem;
-    color:green;
+.buttons button{
+    font-size:3rem ;
+    cursor:pointer;
+    background-color: white;
+    border: none;
+    
+}
+#pick{
+    margin-top: 4.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#pick > div{
+    font-size: 2rem;
+    font-weight:bold;
+}
+#final{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 5rem;
 
-  
+}
+#final > div{
+    font-size: 3.5rem;
+}
+#result{color:black; 
+        margin-top: 4rem;
+        text-align:center;
 }
