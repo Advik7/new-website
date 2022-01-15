@@ -1,67 +1,66 @@
-"use strict";
-let choices = ["👊", "✋", "✌"];
-let playerChoice = "" ;  
-let computerChoice;
-let rock = document.getElementById("rock");
-let paper = document.getElementById("paper");
-let scissors = document.getElementById("scissors");
-let playerPick = document.getElementById('playerPick')
-let computerPick = document.getElementById('computerPick')
-let resultText = document.getElementById('result')
-let playerScore = 0
-let computerScore = 0
-let state = ""
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minsEl = document.getElementById("mins");
+const secondsEl = document.getElementById("seconds");
+const inputDate = document.getElementById('date')
+const inputButton = document.querySelector('button');
+const error = document.getElementById('error')
+const months = {
+  "01": "Jan",
+  "02": "Feb",
+  "03": "Mar",
+  "04": "Apr",
+  "05": "May",
+  "06": "Jun",
+  "07": "Jul",
+  "08": "Aug",
+  "09": "Sep",
+  "10": "Oct",
+  "11": "Nov",
+  "12": "Dec"
+};
+let newYears;
 
-function randomChoice() {
-    let randomNumber = Math.floor(Math.random() * 3)
-    return randomNumber
+inputButton.addEventListener('click' , () => {
+    if (inputDate.value ) {
 
-}
-
-rock.addEventListener('click', function() {
-    playerChoice = "👊"
-    gameLogic()
-})
-
-paper.addEventListener('click', function() {
-    playerChoice = "✋"
-    gameLogic()
-})
-
-scissors.addEventListener('click', function() {
-    playerChoice = "✌"
-    gameLogic()
-})
-
-
-
-function gameLogic() {
-    computerChoice = choices[randomChoice()]
-    playerPick.textContent = playerChoice
-    computerPick.textContent = computerChoice
-    if (playerChoice==="👊" && computerChoice ==="✌") {
-        state = "You won"
-        playerScore += 1
-    }else if (playerChoice==="✋" && computerChoice ==="👊") {
-        state = "You won"
-        playerScore += 1
-    }else if (playerChoice==="✌" && computerChoice ==="✋") {
-        state = "You won"
-        playerScore += 1
-    }else if (playerChoice===computerChoice) {
-        state = "It's a draw"
-    }else {
-        console.log("you lost and computer pick " + computerChoice)
-        state = "You lost"
-        computerScore +=1
+      let array = inputDate.value.split("/");
+      newYears = array[0] + " " + months[array[1]] + " " + array[2]
+      inputDate.value = ""
+      error.textContent = ""
+    } else {
+        error.textContent = "Please input date"
     }
-    resultText.textContent = state + " and the Score is " + playerScore + "-" + computerScore
+
+})
+
+
+
+
+function countdown() {
+  const newYearsDate = new Date(newYears);
+  const currentDate = new Date();
+
+  const totalSeconds = (newYearsDate - currentDate) / 1000;
+
+  const days = Math.floor(totalSeconds / 3600 / 24);
+  const hours = Math.floor(totalSeconds / 3600) % 24;
+  const mins = Math.floor(totalSeconds / 60) % 60;
+  const seconds = Math.floor(totalSeconds) % 60;
+
+  if (newYears != undefined || newYears != null  ) {
+    daysEl.innerHTML = days;
+    hoursEl.innerHTML = formatTime(hours);
+    minsEl.innerHTML = formatTime(mins);
+    secondsEl.innerHTML = formatTime(seconds);
+  } 
 }
 
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
+}
 
+// initial call
+countdown();
 
-
-
-
-
-
+setInterval(countdown, 1000);
